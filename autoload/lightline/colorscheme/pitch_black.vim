@@ -1,10 +1,3 @@
-" =============================================================================
-" Filename: autoload/lightline/colorscheme/codedark.vim
-" Author: artanikin
-" License: MIT License
-" Last Change: 2019/12/05 12:26:00
-" =============================================================================
-
 let s:term_red = 204
 let s:term_green = 114
 let s:term_yellow = 180
@@ -37,4 +30,4 @@ let s:p.tabline.right = [ s:p.normal.left[1] ]
 let s:p.normal.error = [ [ '#262626', '#D16969', s:term_black, s:term_red ] ]
 let s:p.normal.warning = [ [ '#262626', '#D7BA7D', s:term_black, s:term_yellow ] ]
 
-let g:lightline#colorscheme#codedark#palette = lightline#colorscheme#fill(s:p)
+let g:lightline#colorscheme#pitch_black#palette = lightline#colorscheme#fill(s:p)

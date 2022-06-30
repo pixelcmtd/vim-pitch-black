@@ -1,6 +1,3 @@
-" Vim Code Dark (color scheme)
-" https://github.com/tomasiser/vim-code-dark
-
 scriptencoding utf-8
 
 set background=dark
@@ -8,20 +5,20 @@ hi clear
 if exists("syntax_on")
     syntax reset
 endif
-let g:colors_name="codedark"
+let g:colors_name="pitch_black"
 
 " Highlighting function (inspiration from https://github.com/chriskempson/base16-vim)
 if &t_Co >= 256
-    let g:codedark_term256=1
-elseif !exists("g:codedark_term256")
-    let g:codedark_term256=0
+    let g:pitch_black_term256=1
+elseif !exists("g:pitch_black_term256")
+    let g:pitch_black_term256=0
 endif
 fun! <sid>hi(group, fg, bg, attr, sp)
   if !empty(a:fg)
-    exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . (g:codedark_term256 ? a:fg.cterm256 : a:fg.cterm)
+    exec "hi " . a:group . " guifg=" . a:fg.gui . " ctermfg=" . (g:pitch_black_term256 ? a:fg.cterm256 : a:fg.cterm)
   endif
   if !empty(a:bg)
-    exec "hi " . a:group . " guibg=" . a:bg.gui . " ctermbg=" . (g:codedark_term256 ? a:bg.cterm256 : a:bg.cterm)
+    exec "hi " . a:group . " guibg=" . a:bg.gui . " ctermbg=" . (g:pitch_black_term256 ? a:bg.cterm256 : a:bg.cterm)
   endif
   if a:attr != ""
     exec "hi " . a:group . " gui=" . a:attr . " cterm=" . a:attr
@@ -66,10 +63,10 @@ endif
 " (some of them may be unused)
 
 let s:cdNone = {'gui': 'NONE', 'cterm': 'NONE', 'cterm256': 'NONE'}
-let s:cdFront = {'gui': '#D4D4D4', 'cterm': s:cterm05, 'cterm256': '188'}
-let s:cdBack = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+let s:cdFront = {'gui': '#C7C7C7', 'cterm': s:cterm05, 'cterm256': '251'}
+let s:cdBack = {'gui': '#000000', 'cterm': s:cterm00, 'cterm256': '0'}
 
-let s:cdTabCurrent = {'gui': '#1E1E1E', 'cterm': s:cterm00, 'cterm256': '234'}
+let s:cdTabCurrent = {'gui': '#000000', 'cterm': s:cterm00, 'cterm256': '0'}
 let s:cdTabOther = {'gui': '#2D2D2D', 'cterm': s:cterm01, 'cterm256': '236'}
 let s:cdTabOutside = {'gui': '#252526', 'cterm': s:cterm01, 'cterm256': '235'}
 
@@ -105,13 +102,9 @@ let s:cdSearch = {'gui': '#264F78', 'cterm': s:cterm03, 'cterm256': '24'}
 
 " Syntax colors:
 
-if !exists("g:codedark_conservative")
-    let g:codedark_conservative=0
-endif
-
 " Italicized comments
-if !exists("g:codedark_italics")
-    let g:codedark_italics=0
+if !exists("g:pitch_black_italics")
+    let g:pitch_black_italics=0
 endif
 
 let s:cdGray = {'gui': '#808080', 'cterm': s:cterm04, 'cterm256': '08'}
@@ -119,19 +112,15 @@ let s:cdViolet = {'gui': '#646695', 'cterm': s:cterm04, 'cterm256': '60'}
 let s:cdBlue = {'gui': '#569CD6', 'cterm': s:cterm0D, 'cterm256': '75'}
 let s:cdDarkBlue = {'gui': '#223E55', 'cterm': s:cterm0D, 'cterm256': '73'}
 let s:cdLightBlue = {'gui': '#9CDCFE', 'cterm': s:cterm0C, 'cterm256': '117'}
-if g:codedark_conservative | let s:cdLightBlue = s:cdFront | endif
 let s:cdGreen = {'gui': '#6A9955', 'cterm': s:cterm0B, 'cterm256': '65'}
 let s:cdBlueGreen = {'gui': '#4EC9B0', 'cterm': s:cterm0F, 'cterm256': '43'}
 let s:cdLightGreen = {'gui': '#B5CEA8', 'cterm': s:cterm09, 'cterm256': '151'}
 let s:cdRed = {'gui': '#F44747', 'cterm': s:cterm08, 'cterm256': '203'}
 let s:cdOrange = {'gui': '#CE9178', 'cterm': s:cterm0F, 'cterm256': '173'}
 let s:cdLightRed = {'gui': '#D16969', 'cterm': s:cterm08, 'cterm256': '167'}
-if g:codedark_conservative | let s:cdLightRed = s:cdOrange | endif
 let s:cdYellowOrange = {'gui': '#D7BA7D', 'cterm': s:cterm0A, 'cterm256': '179'}
 let s:cdYellow = {'gui': '#DCDCAA', 'cterm': s:cterm0A, 'cterm256': '187'}
-if g:codedark_conservative | let s:cdYellow = s:cdFront | endif
 let s:cdPink = {'gui': '#C586C0', 'cterm': s:cterm0E, 'cterm256': '176'}
-if g:codedark_conservative | let s:cdPink = s:cdBlue | endif
 let s:cdSilver = {'gui': '#C0C0C0', 'cterm': s:cterm05, 'cterm256': '7'}
 
 " Vim editor colors
@@ -182,7 +171,7 @@ hi! link diffAdded DiffAdd
 hi! link diffChanged DiffChange
 hi! link diffRemoved DiffDelete
 
-if g:codedark_italics | call <sid>hi('Comment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('Comment', s:cdGreen, {}, 'none', {}) | endif
+if g:pitch_black_italics | call <sid>hi('Comment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('Comment', s:cdGreen, {}, 'none', {}) | endif
 
 call <sid>hi('Constant', s:cdBlue, {}, 'none', {})
 call <sid>hi('String', s:cdOrange, {}, 'none', {})
@@ -217,7 +206,7 @@ call <sid>hi('Special', s:cdYellowOrange, {}, 'none', {})
 call <sid>hi('SpecialChar', s:cdFront, {}, 'none', {})
 call <sid>hi('Tag', s:cdFront, {}, 'none', {})
 call <sid>hi('Delimiter', s:cdFront, {}, 'none', {})
-if g:codedark_italics | call <sid>hi('SpecialComment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {}) | endif
+if g:pitch_black_italics | call <sid>hi('SpecialComment', s:cdGreen, {}, 'italic', {}) | else | call <sid>hi('SpecialComment', s:cdGreen, {}, 'none', {}) | endif
 call <sid>hi('Debug', s:cdFront, {}, 'none', {})
 
 call <sid>hi('Underlined', s:cdNone, {}, 'underline', {})
